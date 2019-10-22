@@ -225,8 +225,15 @@ class LogicBoxes
 
             $response = json_decode($this->response);
 
-            if (isset($response->status)) {
-                throw new ErrorResponseException($response->message, 3);
+            if (isset($response->status) && strtolower($response->status) == 'error') {
+                $message = $response->status;
+                if (isset($response->message)) {
+                    $message = $response->message;
+                } elseif (isset($response->error)) {
+                    $message = $response->error;
+                }
+
+                throw new ErrorResponseException($message, 3);
             }
         }
 
