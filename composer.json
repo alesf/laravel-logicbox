@@ -12,7 +12,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^7.2 || ^8.0",
-    "vlucas/phpdotenv": "^4.0",
+    "vlucas/phpdotenv": "^4.0 || ^5.0",
     "nesbot/carbon": "^2.0 || ^3.0"
   },
   "require-dev": {
